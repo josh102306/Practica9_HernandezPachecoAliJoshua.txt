@@ -1,0 +1,108 @@
+/*
+Practica9                       Hernandez Pacheco Ali Joshua 
+Fecha: 07/12/2020
+*/
+
+
+//Ejercicio 1// 
+#include <stdio.h>
+int main(){
+	void ahorros_Anuales();
+	
+	//Declaración de variables locales para el límite de iteraciones, contador, los depósitos y la moneda respectivamente-
+	#define LIMITE 12
+	float ahorros=0, depositos=0;
+	char op='n';
+	unsigned int meses=1;
+	for (meses=1; meses<=LIMITE; meses++) {
+			printf("\n\n\nPara el mes numero %d", meses);
+			printf(". Cuanto dinero deposito al final del mes? "); scanf("%f", &depositos);
+			ahorros+=depositos;
+			printf("\nLos ahorros de este mes son %f dolares", ahorros);
+				
+			}
+	
+		printf("\n\n\nSus ahorros de estos doce meses son: %f dolares", ahorros);
+	   
+return 0; 
+ }
+ 
+ 
+ // Ejercicio 2//
+ 
+ #include<stdio.h>
+int main () {
+	void clasificacion_numeros();
+	
+	//Declaración de variables locales para el ciclo, los contadores de clasificación y el número a clasificar------------
+	char re='n';
+	unsigned int Mn=0, My=0;
+	float pp=0;
+
+	//Se usa la estructura 'do-while' para añadir los N números que desee el usuario sin conocerlos-----------------------
+	//Así solo se usa solo una variable en lugar de dos para la iteración-------------------------------------------------
+	do {
+		printf("\nPor favor, escribe el numero que desees clasificar: "); scanf("%f", &pp);
+		pp<=0 ? Mn++ : My++;
+		
+		//Ciclo para iterar la cantidad N de números hasta que el usuario decida dicha cantidad---------------------------
+		if (pp<=0) {
+			printf("\nEl numero es menor o igual a cero");
+			//Mn++;
+			printf("\n\nHasta ahora las cantidades iguales o menores a cero son: %o", Mn);
+			printf("\nHasta ahora las cantidades mayores a cero son: %o", My);
+		}
+		else {
+			printf("\nEl numero es mayor a cero"); 
+			//My++;
+			printf("\n\nHasta ahora las cantidades mayores a cero son: %o", My);
+			printf("\nHasta ahora las cantidades iguales o menores a cero son: %o", Mn);
+		}
+		
+		printf("\n\n\nDesea agregar y clasificar otro numero? Y/N\n");
+		setbuf(stdin, NULL);//Evitamos errores al borrar la memoria-------------------------------------------------------
+		//scanf("%c", &re); printf("%c", re); ... Alternativa al getchar para el caracter---------------------------------
+		re=getchar();
+		
+	} while (re == 'Y' || re == 'y'); //Indistinto si es mayúscula o minúscula--------------------------------------------
+	
+	//Interfaz cuando se termine de iterar--------------------------------------------------------------------------------
+	printf("\n\n\nLas cantidades menores o iguales a cero totales son: %o", Mn);
+	printf("\n\nLas cantidades mayores a cero totales son: %o", My);
+	
+	return;
+} 
+
+
+  
+  // Ejercicio 3// 
+
+#include<stdio.h>
+int main () {
+	void numeros_pares_cien();
+
+	//Declaración de variable local para el ciclo e impresión de los numeros pares----------------------------------------
+	unsigned int cont;
+	
+	//Arreglo de los números pares
+	printf("\nSe generaran e imprimiran los numeros pares que se encuentran entre cero y cien:\n");
+	printf("\n\n[ ");
+
+	//Usa la estructura de repetición 'for' para repetirlo hasta cien-----------------------------------------------------
+	for (cont=0; cont<100; cont++){
+		
+	//Ciclo para separar e imprimir los numeros pares hasta cien----------------------------------------------------------	
+		if (cont%2 == 0){
+			printf("%d, ", cont);
+			continue;
+		}
+	
+	}
+	if (cont==100)
+		printf("%d ", cont);
+		
+	//Final del arreglo---------------------------------------------------------------------------------------------------
+	printf(" ]\n\n");
+	
+	return;
+}
